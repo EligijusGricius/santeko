@@ -1,0 +1,60 @@
+.quick-order {
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px 0;
+        padding: 20px;
+        background-color: #F6F6F6;
+        border-radius: 8px;
+    }
+
+    &__row {
+        display: flex;
+        gap: 0 20px;
+
+        .input-text {
+            &--search {
+                width: 61.77%;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    &__wishlist,
+    &__remove-row {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        background: #fff url('../images/icons/heart-icon.svg') center center no-repeat;
+        border: 1px solid #E6E6E6;
+        border-radius: 8px;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            background-color: #F6F6F6;
+        }
+    }
+
+    &__add-row {
+        border: 0;
+        background: none;
+        font-weight: 600;
+        color: #323232;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            color: #005CA9;
+        }
+    }
+
+    &__remove-row {
+        background-image: url(../images/icons/quick-order-remove-icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__actions {
+        padding: 10px 0 0 0;
+    }
+}

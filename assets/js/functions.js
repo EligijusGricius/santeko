@@ -6,8 +6,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     Fancybox.bind("[data-fancybox]", {
-  // Your custom options
-});
+    // Your custom options
+    });
 
     /* Header on scroll */
 
@@ -34,30 +34,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* /Reviews swiper */
+    /* Hero swiper */
 
-    /* Enable tooltips */
-
-    document.querySelectorAll('.partners-reviews-swiper').forEach(holder => {
+    document.querySelectorAll('.home-hero').forEach(holder => {
         const swiperContainer = holder.querySelector('.swiper');
 
         if (swiperContainer) {
             new Swiper(swiperContainer, {
                 slidesPerView: 1,
-                spaceBetween: 10,
-                loop: false,
-                navigation: {
-                    nextEl: holder.querySelector(".swiper-button-next"),
-                    prevEl: holder.querySelector(".swiper-button-prev"),
+                spaceBetween: 20,
+                loop: false, 
+                pagination: {
+                    el: holder.querySelector(".swiper-pagination"),
+                    clickable: true,
                 },
-
-                pagination: false,
-
             });
         }
-    }); 
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });  
 
     /* Results swiper */
 
@@ -90,81 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });  
-
-   
-    /* IG output swiper */
-
-    document.querySelectorAll('.ig-output').forEach(holder => {
-        const swiperContainer = holder.querySelector('.swiper');
-
-        if (swiperContainer) {
-            new Swiper(swiperContainer, {
-                slidesPerView:  5.5,
-                spaceBetween: 0,
-                loop: true, 
-                pagination: false,
-                navigation: false,
-                breakpoints: {
-                    0: {
-                        slidesPerView: 2.1,
-                    },
-
-                    575: {
-                        slidesPerView: 3.2,
-                    },
-
-                    992: {
-                        slidesPerView: 4.5,
-                    },
-
-                    1400: {
-                        slidesPerView: 5.5,
-                    },
-
-                    1600: {
-                        slidesPerView: 6.5,
-                    },
-
-                    1880: {
-                        slidesPerView: 7.5,
-                    },
-
-                    2200: {
-                        slidesPerView: 8.5,
-                    },
-
-                    2540: {
-                        slidesPerView: 9.5,
-                    },
-                }
-            });
-        }
-    });  
-
-    /* Hero swiper */
-
-    const heroSwiperContainer = document.querySelector('.hero-swiper .swiper');
-
-    if (heroSwiperContainer) {
-        new Swiper(heroSwiperContainer, {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            loop: true,
-            pagination: {
-            el: '.hero-swiper .swiper-pagination',
-            clickable: true,
-                renderBullet: function (index, className) {
-                    return '<span class="' + className + '">' + (index + 1).toString().padStart(2, '0') + '</span>';
-                },
-            },
-
-            navigation: false,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-        });
-    }
 
     /* Mobile menu dropdowns */
 
@@ -250,32 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
         menuList.addEventListener('mouseleave', () => {
             const openDropdowns = document.querySelectorAll('.dropdown-menu.no-border-radius');
             openDropdowns.forEach(menu => menu.classList.remove('no-border-radius'));
-        });
-    }
-
-    /* Promises swiper */
-
-    const promisesSwiperContainer = document.querySelector('.promises .swiper');
-
-    if (promisesSwiperContainer) {
-        new Swiper(promisesSwiperContainer, {
-            slidesPerView: 3,
-            spaceBetween: 0,
-            loop: true,
-            pagination: {
-                el: '.promises .swiper-pagination',
-                clickable: true,
-            },
-            navigation: false,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-
-                769: {
-                    slidesPerView: 3,
-                },
-            }
         });
     }
 
@@ -765,4 +657,37 @@ document.addEventListener("DOMContentLoaded", function () {
             body.classList.remove('mini-cart-opened');
         });
     }
+
+    /* Quick order form: Add new row */
+
+    var quickOrder = document.querySelector('.quick-order');
+    var quickOrderForm = quickOrder.querySelector('.quick-order__form');
+    var quickOrderAddRowBtn = quickOrder.querySelector('.quick-order__add-row');
+    var quickOrderActions = quickOrder.querySelector('.quick-order__actions');
+
+    function quickOrderRemoveRow(e) {
+        var quickOrderRow = e.currentTarget.closest('.quick-order__row');
+        quickOrderRow.remove();
+    }
+
+    function quickOrderAddRemoveBtn(row) {
+        var quickOrderRemoveBtn = document.createElement('button');
+        quickOrderRemoveBtn.type = 'button';
+        quickOrderRemoveBtn.className = 'quick-order__remove-row';
+        quickOrderRemoveBtn.setAttribute('aria-label', 'Noņemt rindu');
+        quickOrderRemoveBtn.addEventListener('click', quickOrderRemoveRow);
+        row.appendChild(quickOrderRemoveBtn);
+    }
+
+    quickOrderAddRowBtn.addEventListener('click', function () {
+        var quickOrderFirstRow = quickOrderForm.querySelector('.quick-order__row');
+        var quickOrderNewRow = quickOrderFirstRow.cloneNode(true);
+
+        quickOrderNewRow.querySelectorAll('.input-text').forEach(function (input) {
+        input.value = '';
+        });
+
+        quickOrderAddRemoveBtn(quickOrderNewRow);
+        quickOrderForm.insertBefore(quickOrderNewRow, quickOrderActions);
+    });
 });
