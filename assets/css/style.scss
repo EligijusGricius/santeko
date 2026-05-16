@@ -557,12 +557,25 @@ input[type=number]::-webkit-outer-spin-button {
 
     .block-heading, .section-heading, .page-heading {
         margin: 0;
+
+        &:has(img, svg) {
+            display: flex;
+            align-items: center;
+            gap: 0 12px;
+
+            img, svg {
+                pointer-events: none;
+                user-select: none;
+            }
+        }
     }
 
     .sub-heading {
         margin: 0;
         font-size: 20px;
+        font-weight: 600;
         color: #4C4C4D;
+        text-transform: uppercase;
     }
 
     .rating {
@@ -618,6 +631,10 @@ input[type=number]::-webkit-inner-spin-button {
     }
 }
 
+.swiper-holder {
+    position: relative;
+}
+
 .swiper-pagination {
     position: static;
     display: inline-flex;
@@ -631,6 +648,10 @@ input[type=number]::-webkit-inner-spin-button {
     background-color: #fff;
     border: 1px solid #E6E6E6;
     border-radius: 99px;
+
+    &-lock {
+        display: none;
+    }
 
     &-bullet {
         width: 10px;
@@ -648,6 +669,63 @@ input[type=number]::-webkit-inner-spin-button {
             border-color: #4C4C4D;
             box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24) inset;
         }
+    }
+}
+
+.swiper-nav {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: -52px;
+    right: -52px;
+    height: 0.01px;
+    transform: translateY(-50%);
+    
+    button {
+        position: static;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background-color: #fff;
+        opacity: 1;
+        transition: all .3s ease-in-out;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: #f8f8f8;
+        }
+
+        &::before,
+        &::after {
+            content: none;
+        }
+
+        &.swiper-button-next {
+            background-image: url('../images/icons/swiper-nav-right-arrow.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &.swiper-button-prev {
+            background-image: url('../images/icons/swiper-nav-left-arrow.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &.swiper-button-disabled {
+            background-color: transparent;
+            opacity: 1;
+        }
+    }
+}
+
+.swiper-holder:has(.swiper-pagination) {
+    .swiper-nav {
+        top: calc(50% - 28px);
     }
 }
 
@@ -1142,6 +1220,7 @@ input[type=number]::-webkit-inner-spin-button {
 /* Sections  */
 
 @import "sections/_home-hero";
+@import "sections/_home-products";
 
 /* Blocks */
 

@@ -1,4 +1,6 @@
 .home-hero {
+    padding: 0 0 66px 0;
+
     &__banners {
         display: flex;
         gap: 20px;
@@ -81,5 +83,9 @@
         .swiper-wrapper {
             border-radius: 10px;
         }
+    }
+
+    .benefits-bar {
+        margin-bottom: 30px;
     }
 }

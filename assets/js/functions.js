@@ -292,8 +292,11 @@ document.addEventListener("DOMContentLoaded", function () {
             new Swiper(swiperContainer, {
                 slidesPerView: 4,
                 spaceBetween: 20,
-                autoHeight: true,
                 loop: false,
+                grid: {
+                    rows: 2,
+                    fill: 'row',
+                },
                 pagination: {
                     el: holder.querySelector(".swiper-pagination"),
                     clickable: true,
@@ -302,24 +305,35 @@ document.addEventListener("DOMContentLoaded", function () {
                     nextEl: holder.querySelector(".swiper-button-next"),
                     prevEl: holder.querySelector(".swiper-button-prev"),
                 },
-
                 breakpoints: {
                     0: {
                         slidesPerView: 2,
                         spaceBetween: 10,
+                        grid: {
+                            rows: 2,
+                            fill: 'row',
+                        },
                     },
                     768: {
                         slidesPerView: 3,
                         spaceBetween: 15,
+                        grid: {
+                            rows: 2,
+                            fill: 'row',
+                        },
                     },
                     992: {
                         slidesPerView: 4,
                         spaceBetween: 20,
+                        grid: {
+                            rows: 2,
+                            fill: 'row',
+                        },
                     },
                 }
             });
         }
-    });  
+    });
 
     /* --- Quantity Selector Logic --- */
 
