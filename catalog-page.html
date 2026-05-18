@@ -170,6 +170,67 @@
         </header>     
 
         <main id="main" class="site-main" role="main"> 
+            <nav class="breadcrumb woocommerce-breadcrumb" aria-label="Breadcrumb">
+                <div class="container">
+                    <a class="breadcrumb__link" href="#">Sākums</a>
+                    <span class="breadcrumb__separator"></span>
+                    <a class="breadcrumb__link" href="#">Radiatori</a>
+                    <span class="breadcrumb__separator"></span>
+                    <span class="breadcrumb__current">Alumīnija radiatori Fondital</span>
+                </div>
+            </nav>
+
+            <div class="container">
+                <h1 class="page-heading">ALUMĪNIJA RADIATORI FONDITAL</h1>
+
+                <div class="product-search">
+                    <button class="product-search__toggle" type="button">
+                        <span>PRODUKTU MEKLĒTAJS</span>
+                    </button>
+
+                    <div class="product-search__body">
+                        <div class="product-search__fields">
+                            <div class="form-group">
+                                <label>Produkta nosaukums</label>
+                                <input type="text" name="" class="input-text" placeholder="Ievadi produkta nosaukumu">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nomenklatūra</label>
+                                <input type="text" name="" class="input-text" value="" placeholder="20000903501xx">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="supplier">Piegādātājs</label>
+
+                                <select name="supplier">
+                                    <option value="">Visi</option>
+                                    <option value="fondital" selected>Fondital</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="product-search__tags">
+                            <div class="product-search__tags-list">
+                                <div class="product-search__tag product-search__tag--clear-all">
+                                    Notīrīt visus <button type="button" class="product-search__tag-remove"></button>
+                                </div>
+
+                                <div class="product-search__tag">
+                                    Zīmols: <strong>Fondital</strong> <button type="button" class="product-search__tag-remove"></button>
+                                </div>
+                                
+                                <div class="product-search__tag">
+                                    Nomenklatūra: <strong>20000903501xx</strong> <button type="button" class="product-search__tag-remove"></button>
+                                </div>
+                            </div>
+
+                            <button type="submit"class="btn btn-primary">MEKLĒT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="container has-aside">
                 <aside class="sidebar">
                     <div class="widget category">
@@ -222,6 +283,41 @@
                 </aside>
 
                 <div class="content">
+                    <div class="toolbar toolbar--top">
+                        <div class="toolbar__result-count woocommerce-result-count">
+                            Produkti <strong>1-12</strong> no <strong>24</strong>
+                        </div>
+
+                        <div class="toolbar__controls">
+                            <div class="toolbar__per-page">
+                                <label class="toolbar__label" for="per-page">Radīt:</label>
+
+                                <form action="#" method="post">
+                                    <select class="toolbar__select" name="">
+                                        <option value="12" selected>12 lapā</option>
+                                        <option value="24">24 lapā</option>
+                                        <option value="36">36 lapā</option>
+                                    </select>
+                                </form>
+                            </div>
+                            
+                            <div class="toolbar__sorting">
+                                <label class="toolbar__label" for="orderby">Kārtot:</label>
+
+                                <form class="woocommerce-ordering" method="get">
+                                    <select class="toolbar__select orderby" id="orderby" name="orderby">
+                                        <option value="menu_order" selected>Pēc noklusējuma</option>
+                                        <option value="popularity">Pēc popularitātes</option>
+                                        <option value="rating">Pēc novērtējuma</option>
+                                        <option value="date">Pēc jaunākā</option>
+                                        <option value="price">Pēc cenas: no zemākās</option>
+                                        <option value="price-desc">Pēc cenas: no augstākās</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="products-grid columns-3">
                         <div class="product-card">
                             <div class="product-card__media">
@@ -550,6 +646,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="toolbar toolbar--bottom">
+                        <div class="toolbar__result-count woocommerce-result-count">
+                            Produkti <strong>1-24</strong> no <strong>32</strong>
+                        </div>
+
+                        <nav class="woocommerce-pagination">
+                            <ul class="page-numbers">
+                                <li><a class="prev page-numbers" href="#"></a></li>
+                                <li><span class="page-numbers current">1</span></li>
+                                <li><a class="page-numbers" href="#">2</a></li>
+                                <li><a class="page-numbers" href="#">3</a></li>
+                                <li><span class="page-numbers dots">...</span></li>
+                                <li><a class="next page-numbers" href="#"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </main>
@@ -863,7 +976,9 @@
         <div class="content-overlay"></div>
 
         <!-- JS files -->
-        <script src="assets/bootstrap/dist/js/bootstrap.bundle.js"></script> 
+        <script src="assets/js/jquery.min.js"></script> 
+        <script src="assets/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="assets/js/bootstrap-select.min.js"></script> 
         <script src="assets/js/swiper-bundle.min.js"></script> 
         <script src="assets/js/fancybox.min.js"></script> 
         <script src="assets/js/functions.js?v=1"></script>       

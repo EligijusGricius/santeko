@@ -1,7 +1,7 @@
 
-// if($('select').length) {
-//     $('select').selectpicker();
-// }
+if($('select').length) {
+    $('select').selectpicker();
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -554,34 +554,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* Quick order form: Add new row */
 
-    var quickOrder = document.querySelector('.quick-order');
-    var quickOrderForm = quickOrder.querySelector('.quick-order__form');
-    var quickOrderAddRowBtn = quickOrder.querySelector('.quick-order__add-row');
-    var quickOrderActions = quickOrder.querySelector('.quick-order__actions');
+   var quickOrder = document.querySelector('.quick-order');
 
-    function quickOrderRemoveRow(e) {
-        var quickOrderRow = e.currentTarget.closest('.quick-order__row');
-        quickOrderRow.remove();
+    if (quickOrder) {
+        var quickOrderForm = quickOrder.querySelector('.quick-order__form');
+        var quickOrderAddRowBtn = quickOrder.querySelector('.quick-order__add-row');
+        var quickOrderActions = quickOrder.querySelector('.quick-order__actions');
+        
+        function quickOrderRemoveRow(e) {
+            var quickOrderRow = e.currentTarget.closest('.quick-order__row');
+            quickOrderRow.remove();
+        }
+        
+        function quickOrderAddRemoveBtn(row) {
+            var quickOrderRemoveBtn = document.createElement('button');
+            quickOrderRemoveBtn.type = 'button';
+            quickOrderRemoveBtn.className = 'quick-order__remove-row';
+            quickOrderRemoveBtn.setAttribute('aria-label', 'Noņemt rindu');
+            quickOrderRemoveBtn.addEventListener('click', quickOrderRemoveRow);
+            row.appendChild(quickOrderRemoveBtn);
+        }
+        
+        quickOrderAddRowBtn.addEventListener('click', function () {
+            var quickOrderFirstRow = quickOrderForm.querySelector('.quick-order__row');
+            var quickOrderNewRow = quickOrderFirstRow.cloneNode(true);
+            quickOrderNewRow.querySelectorAll('.input-text').forEach(function (input) {
+                input.value = '';
+            });
+            quickOrderAddRemoveBtn(quickOrderNewRow);
+            quickOrderForm.insertBefore(quickOrderNewRow, quickOrderActions);
+        });
     }
 
-    function quickOrderAddRemoveBtn(row) {
-        var quickOrderRemoveBtn = document.createElement('button');
-        quickOrderRemoveBtn.type = 'button';
-        quickOrderRemoveBtn.className = 'quick-order__remove-row';
-        quickOrderRemoveBtn.setAttribute('aria-label', 'Noņemt rindu');
-        quickOrderRemoveBtn.addEventListener('click', quickOrderRemoveRow);
-        row.appendChild(quickOrderRemoveBtn);
-    }
+    /* Product search functionality */
 
-    quickOrderAddRowBtn.addEventListener('click', function () {
-        var quickOrderFirstRow = quickOrderForm.querySelector('.quick-order__row');
-        var quickOrderNewRow = quickOrderFirstRow.cloneNode(true);
+    var productSearch = document.querySelector('.product-search');
 
-        quickOrderNewRow.querySelectorAll('.input-text').forEach(function (input) {
-        input.value = '';
+    if (productSearch) {
+        var toggle = productSearch.querySelector('.product-search__toggle');
+        var tags = productSearch.querySelector('.product-search__tags');
+
+        toggle.addEventListener('click', function () {
+            productSearch.classList.toggle('opened');
         });
 
-        quickOrderAddRemoveBtn(quickOrderNewRow);
-        quickOrderForm.insertBefore(quickOrderNewRow, quickOrderActions);
-    });
+        tags.addEventListener('click', function (e) {
+            var removeBtn = e.target.closest('.product-search__tag-remove');
+            if (!removeBtn) return;
+
+            var tag = removeBtn.closest('.product-search__tag');
+
+            if (tag.classList.contains('product-search__tag--clear-all')) {
+                tags.querySelectorAll('.product-search__tag:not(.product-search__tag--clear-all)').forEach(function (t) {
+                    t.remove();
+                });
+                tag.remove();
+            } else {
+                tag.remove();
+            }
+        });
+    }
 });
