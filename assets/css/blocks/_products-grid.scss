@@ -1,0 +1,24 @@
+.products-grid {
+    display: grid;
+    gap: 20px;
+    padding-bottom: 32px;
+
+    &.columns-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .product-card__title {
+        min-height: 48px;
+        margin-bottom: 8px;
+        white-space: normal;
+        overflow: visible;
+    }
+}
+
+.archive {
+    background-color: #f6f6f6;
+
+    #main-footer {
+        border-top: 1px solid #E6E6E6;
+    }
+}

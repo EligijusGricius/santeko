@@ -24,6 +24,14 @@
         align-items: center;
         font-size: 14px;
 
+        &--desktop {
+            @media screen {
+                @media (max-width: 991px) {
+                    display: none;
+                }
+            }
+        }
+
         @media screen {
             @media (max-width: 768px) {
                 font-size: 12px;
@@ -67,9 +75,12 @@
             align-items: center;
             gap: 0 4px;
             color: #fff;
+            text-decoration: underline;
+            text-decoration-color: #4186bf;
+            text-decoration-thickness: 1px;
 
             &:hover {
-                text-decoration: underline;
+                text-decoration-color: #fff;
             }
         }
     }

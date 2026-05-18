@@ -335,9 +335,47 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    /* Logo swiper */
+
+    document.querySelectorAll('.logo-swiper .swiper').forEach(swiperContainer => {
+        if (swiperContainer) {
+            new Swiper(swiperContainer, {
+                slidesPerView: 6.2,
+                spaceBetween: 12,
+                loop: false,
+                pagination: false,
+                navigation: false,
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2.1,
+                        spaceBetween: 12,
+                    },
+                    768: {
+                        slidesPerView: 3.1,
+                        spaceBetween: 12,
+                    },
+
+                    992: {
+                        slidesPerView: 4.2,
+                        spaceBetween: 12,
+                    },
+
+                    1200: {
+                        slidesPerView: 5.2,
+                        spaceBetween: 12,
+                    },
+
+                    1300: {
+                        slidesPerView: 6.2,
+                        spaceBetween: 12,
+                    },
+                }
+            });
+        }
+    });
+
     /* --- Quantity Selector Logic --- */
 
-    // Select all quantity containers to handle multiple products (e.g., in Cart)
     const quantityContainers = document.querySelectorAll('.quantity');
 
     quantityContainers.forEach(container => {
@@ -375,7 +413,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-        /* Single product gallery */
+    /* Single product gallery */
 
     if (document.querySelector('.single-product-page .product-images')) {
         const thumbnailSwiper = new Swiper('.single-product-page .swiper-container-thumbs', {
@@ -442,164 +480,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     /* /Single product gallery */
 
-
-    /* --- Sidebar Toggle Functionality --- */
-
-    // Select elements
-    const showSidebarBtns = document.querySelectorAll('.has-aside .wc-shop-tools .show-sidebar, .has-aside .wd-shop-tools .show-sidebar');
-    const sidebar = document.querySelector('.has-aside .sidebar');
-    const closeSidebarBtn = document.querySelector('.has-aside .sidebar .close-sidebar');
-
-    if (sidebar) {
-        showSidebarBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation(); 
-                sidebar.classList.toggle('show-sidebar');
-            });
-        });
-
-        if (closeSidebarBtn) {
-            closeSidebarBtn.addEventListener('click', () => {
-                sidebar.classList.remove('show-sidebar');
-            });
-        }
-
-        document.addEventListener('click', (event) => {
-            const isClickInsideSidebar = sidebar.contains(event.target);
-            const isClickOnToggleBtn = Array.from(showSidebarBtns).some(btn => btn.contains(event.target));
-
-            if (sidebar.classList.contains('show-sidebar') && !isClickInsideSidebar && !isClickOnToggleBtn) {
-                sidebar.classList.remove('show-sidebar');
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && sidebar.classList.contains('show-sidebar')) {
-                sidebar.classList.remove('show-sidebar');
-            }
-        });
-    }
-    //     const isRadio = e.target.classList.contains('upsell-radio-input');
-    //     const isCheckbox = e.target.type === 'checkbox' && e.target.closest('.upsell-options__item-label');
-
-    //     if (isRadio || isCheckbox) {
-    //         const currentInput = e.target;
-    //         const parentItem = currentInput.closest('.upsell-options__item-label');
-
-    //         if (parentItem) {
-    //             parentItem.classList.add('selected');
-
-    //             if (isRadio) {
-    //                 const groupName = currentInput.name;
-    //                 const radiosInThisParent = parentItem.querySelectorAll(`input[name="${groupName}"]`);
-                    
-    //                 radiosInThisParent.forEach(radio => {
-    //                     const targetId = radio.getAttribute('data-target');
-    //                     if (targetId) {
-    //                         const targetBlock = document.getElementById(targetId);
-    //                         if (targetBlock) {
-    //                             radio.checked ? targetBlock.classList.add('show') : targetBlock.classList.remove('show');
-    //                         }
-    //                     }
-    //                 });
-    //             }
-    //         }
-    //     }
-    // });
-
-    /* Cart: Upsell radio / checkbox buttons logic */
-
-    document.addEventListener('change', (e) => {
-        const isRadio = e.target.classList.contains('upsell-radio-input');
-        const isCheckbox = e.target.type === 'checkbox' && e.target.closest('.upsell-options__item-label');
-
-        if (isRadio || isCheckbox) {
-            const currentInput = e.target;
-            const parentItem = currentInput.closest('.upsell-options__item-label');
-
-            if (parentItem) {
-                const anyChecked = parentItem.querySelectorAll('input:checked').length > 0;
-
-                if (anyChecked) {
-                    parentItem.classList.add('selected');
-                } else {
-                    parentItem.classList.remove('selected');
-                }
-
-                if (isRadio) {
-                    const groupName = currentInput.name;
-                    const allRadiosInGroup = document.querySelectorAll(`input[name="${groupName}"]`);
-                    
-                    allRadiosInGroup.forEach(radio => {
-                        const targetId = radio.getAttribute('data-target');
-                        const radioParent = radio.closest('.upsell-options__item-label');
-
-                        if (targetId) {
-                            const targetBlock = document.getElementById(targetId);
-                            if (targetBlock) {
-                                targetBlock.classList.toggle('show', radio.checked);
-                            }
-                        }
-
-                        if (radioParent) {
-                            radioParent.classList.toggle('selected', radio.checked);
-                        }
-                    });
-                }
-            }
-        }
-    });
-
-    document.querySelectorAll('.woocommerce-cart-form .cards-swiper .swiper-holder').forEach(holder => {
-        const swiperContainer = holder.querySelector('.swiper');
-        
-        if (swiperContainer) {
-            new Swiper(swiperContainer, {
-                slidesPerView: 5,
-                spaceBetween: 10,
-                autoHeight: true,
-                loop: false,
-                pagination: {
-                    el: holder.querySelector(".swiper-pagination"),
-                    clickable: true,
-                },
-                navigation: false,
-
-                breakpoints: {
-                    0: {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-
-                    576: {
-                        slidesPerView: 3,
-                        spaceBetween: 10,
-                    },
-
-                    769: {
-                        slidesPerView: 4,
-                        spaceBetween: 10,
-                    },
-
-                    992: {
-                        slidesPerView: 3,
-                        spaceBetween: 10,
-                    },
-
-                    1140: {
-                        slidesPerView: 4,
-                        spaceBetween: 15,
-                    },
-
-                    1300: {
-                        slidesPerView: 5,
-                        spaceBetween: 10,
-                    },
-                }
-            });
-        }
-    });  
 
     /* Phone prefix */
 

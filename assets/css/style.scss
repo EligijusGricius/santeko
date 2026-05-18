@@ -45,7 +45,7 @@ html, body {
     min-height: 100%;
     width: 100%;
     padding: 0; 
-    background-color: #fff;
+    background-color: #f6f6f6;
     line-height: 24px;
     letter-spacing: -0.2px; 
     font-family: 'Open Sans', Arial, sans-serif;
@@ -72,6 +72,14 @@ body {
 
         @media (max-width: 991px) {
             overflow: hidden;
+        }
+    }
+
+    &.home {
+        background-color: #fff;
+
+        #main-footer {
+            background-color: #fff;
         }
     }
 
@@ -191,6 +199,20 @@ ul {
 
         @media (max-width: 768px) {
             padding: 0 20px;
+        }
+    }
+
+    &.has-aside {
+        display: flex;
+        gap: 0 20px;
+
+        .sidebar {
+            flex-shrink: 0;
+            width: 292px;
+        }
+
+        .content {
+            flex-grow: 1;
         }
     }
 }
@@ -1229,8 +1251,11 @@ input[type=number]::-webkit-inner-spin-button {
 @import "blocks/_benefits-bar";
 @import "blocks/_quick-order";
 @import "blocks/_product-card";
+@import "blocks/_logo-swiper";
 @import "blocks/_post-item";
 @import "blocks/_posts-grid";
+@import "blocks/_products-grid";
+@import "blocks/_sidebar";
 @import "blocks/_cart-widget-side";
 
 /* Pages */
