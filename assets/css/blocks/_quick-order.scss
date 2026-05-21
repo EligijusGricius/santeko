@@ -1,4 +1,6 @@
 .quick-order {
+    padding-top: 32px;
+    
     &__form {
         display: flex;
         flex-direction: column;
@@ -6,16 +8,60 @@
         padding: 20px;
         background-color: #F6F6F6;
         border-radius: 8px;
+
+        @media screen {
+            @media (max-width: 991px) {
+                gap: 40px 0;
+            }
+        }
     }
 
     &__row {
         display: flex;
         gap: 0 20px;
 
+        @media screen {
+            @media (max-width: 991px) {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+
         .input-text {
             &--search {
-                width: 61.77%;
                 flex-shrink: 0;
+
+                @media screen {
+                    @media (min-width: 1200px) {
+                        width: 61.77%;
+                    }
+
+                    @media (min-width: 992px) AND (max-width: 1199px) {
+                        width: 50%;
+                    }
+
+                    @media (max-width: 991px) {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &--price {
+                @media screen {
+                    @media (max-width: 991px) {
+                        width: calc(100% - 68px);
+                    }
+                }
+            }
+        }
+
+        &:has(.quick-order__remove-row) {
+            @media screen {
+                @media (max-width: 991px) {
+                    .input-text--price {
+                        width: calc(100% - 136px);
+                    }
+                }
             }
         }
     }
@@ -37,24 +83,44 @@
     }
 
     &__add-row {
+        padding: 0;
         border: 0;
         background: none;
         font-weight: 600;
         color: #323232;
         transition: all .3s ease-in-out;
 
-        &:hover {
-            color: #005CA9;
+        @media screen {
+            @media (min-width: 992px) {
+                &:hover {
+                    color: #005CA9;
+                }                
+            }
         }
     }
 
     &__remove-row {
-        background-image: url(../images/icons/quick-order-remove-icon.svg);
+        background-image: url('../images/icons/quick-order-remove-icon.svg');
         background-position: center;
         background-repeat: no-repeat;
     }
 
     &__actions {
         padding: 10px 0 0 0;
+
+        @media screen {
+            @media (max-width: 490px) {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 24px 0;
+                padding: 0;
+                margin-top: -16px;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
     }
 }

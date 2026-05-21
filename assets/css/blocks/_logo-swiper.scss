@@ -9,5 +9,12 @@
         padding: 10px;
         background-color: #F6F6F6;
         border-radius: 8px;
+
+        @media screen {
+            @media (max-width: 991px) {
+                height: 65px;
+                padding: 20px;
+            }
+        }
     }
 }

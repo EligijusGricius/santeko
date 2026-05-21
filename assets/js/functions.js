@@ -52,6 +52,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });  
 
+    /* Benefits bar swiper */
+
+    document.querySelectorAll('.benefits-bar').forEach(holder => {
+        const swiperContainer = holder.querySelector('.swiper');
+
+        if (swiperContainer) {
+            new Swiper(swiperContainer, {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                loop: false,
+                pagination: {
+                    el: holder.querySelector(".swiper-pagination"),
+                    clickable: true,
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 12,
+                    },
+
+                    576: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+
+                    1300: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                }
+            });
+        }
+    });
+
     /* Results swiper */
 
     document.querySelectorAll('.results-swiper').forEach(holder => {
@@ -307,6 +346,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 breakpoints: {
                     0: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        grid: {
+                            rows: 2,
+                            fill: 'row',
+                        },
+                    },
+
+                    480: {
                         slidesPerView: 2,
                         spaceBetween: 10,
                         grid: {
@@ -314,6 +362,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             fill: 'row',
                         },
                     },
+
+
                     768: {
                         slidesPerView: 3,
                         spaceBetween: 15,
@@ -322,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             fill: 'row',
                         },
                     },
-                    992: {
+                    1200: {
                         slidesPerView: 4,
                         spaceBetween: 20,
                         grid: {
@@ -348,8 +398,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 breakpoints: {
                     0: {
                         slidesPerView: 2.1,
-                        spaceBetween: 12,
+                        spaceBetween: 6.6,
                     },
+                    
                     768: {
                         slidesPerView: 3.1,
                         spaceBetween: 12,

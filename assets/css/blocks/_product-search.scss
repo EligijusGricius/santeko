@@ -4,6 +4,12 @@
     background-color: #fff;
     border-radius: 8px;
 
+    @media screen {
+        @media (max-width: 991px) {
+            margin: 0 0 20px 0;
+        }
+    }
+
     &__toggle {
         display: flex;
         justify-content: flex-start;
@@ -17,10 +23,24 @@
         color: #323232;
         text-transform: uppercase;
 
+        @media screen {
+            @media (max-width: 991px) {
+                padding: 16px;
+                line-height: 26px;
+                font-size: 18px;
+            }
+        }
+
         span {
             position: relative;
             display: inline-flex;
             padding-right: 25px;
+
+            @media screen {
+                @media (max-width: 991px) {
+                    width: 100%;
+                }
+            }
 
             &::after {
                 content: '';
@@ -32,6 +52,12 @@
                 background: url('../images/icons/product-search__toggle-arrow.svg') center center no-repeat;
                 transform: translateY(-50%);
                 transition: all .3s ease-in-out;
+
+                @media screen {
+                    @media (max-width: 991px) {
+                        right: 7px;
+                    }
+                }
             }
         }
     }
@@ -46,6 +72,13 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 20px;
         padding: 0 0 20px 0;
+
+        @media screen {
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: 16px 0;
+            }
+        }
 
         label {
             display: block;
@@ -65,8 +98,18 @@
         padding: 20px 0;
         border-top: 1px solid #E6E6E6;
 
+        @media screen {
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px 0;
+            }
+        }
+
         &-list {
             display: flex;
+            gap: 12px 0;
+            flex-wrap: wrap;
         }
 
         button {
@@ -122,6 +165,12 @@
     button[type="submit"],
     input[type="submit"] {
         padding: 0 24px;
+
+        @media screen {
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+        }
     }
 
     &.opened {

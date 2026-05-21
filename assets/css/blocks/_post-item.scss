@@ -1,14 +1,16 @@
 .post-item {
     position: relative;
+    min-height: 344px;
     border-radius: 8px;
 
     &__image {
         display: flex;
+        height: 100%;
         border-radius: 8px;
         overflow: hidden;
 
         img {
-            height: auto;
+            height: 100%;
             width: 100%;
             object-fit: cover;
             transition: all .3s ease-in-out;
@@ -39,5 +41,11 @@
         text-decoration-thickness: 1px;
         border-radius: 0 0 8px 8px;
         z-index: 1;
+
+        @media screen {
+            @media (max-width: 575px) {
+                font-size: 18px;
+            }
+        }
     }
 }

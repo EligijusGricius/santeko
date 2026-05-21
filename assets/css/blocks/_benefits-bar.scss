@@ -12,6 +12,17 @@
         align-items: center;
         gap: 0 12px;
 
+        @media screen {
+            @media (max-width: 575px) {
+                justify-content: center;
+                padding: 0 0 0 38px;
+            }
+
+            @media (max-width: 380px) {
+                padding: 0;
+            }
+        }
+
         &-icon {
             display: flex;
             align-items: center;
@@ -24,6 +35,25 @@
             font-size: 14px;
             font-weight: 400;
             color: #4C4C4D;
+        }
+    }
+
+    .swiper {
+        @media screen {
+            @media (max-width: 1299px) {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .swiper-pagination {
+            @media screen {
+                @media (max-width: 1299px) {
+                    position: static;
+                    margin: 32px auto 0 auto;
+                    transform: none;
+                }
+            }
         }
     }
 }
