@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         slidesPerView: 2.1,
                         spaceBetween: 6.6,
                     },
-                    
+
                     768: {
                         slidesPerView: 3.1,
                         spaceBetween: 12,
@@ -468,17 +468,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (document.querySelector('.single-product-page .product-images')) {
         const thumbnailSwiper = new Swiper('.single-product-page .swiper-container-thumbs', {
-            direction: 'vertical',
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 8,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
-            navigation: 
-            {
-                nextEl: '.single-product-page .product-images .swiper-button-next',
-                prevEl: '.single-product-page .product-images .swiper-button-prev',
-            },
-
+            navigation: false,
             slideToClickedSlide: true,
     
             breakpoints: {
@@ -489,9 +483,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
     
                 576: {
-                    direction: 'vertical',
                     slidesPerView: 3,
-                    spaceBetween: 10,
+                    spaceBetween: 8,
+                },
+
+                769: {
+                    slidesPerView: 4,
+                    spaceBetween: 8,
+                },
+
+                992: {
+                    slidesPerView: 5,
+                    spaceBetween: 8,
+                },
+
+                1200: {
+                    slidesPerView: 6,
+                    spaceBetween: 8,
                 },
             }
         });
@@ -499,34 +507,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const mainSwiper = new Swiper('.product-images .swiper-container-main', {
             spaceBetween: 10,
             loop: true,
+            navigation: {
+                nextEl: '.single-product-page .swiper-button-next',
+                prevEl: '.single-product-page .swiper-button-prev',
+            },
             thumbs: {
                 swiper: thumbnailSwiper
             }
         });
     
-        // Handle click on thumbnails to sync main swiper and move thumbnails
-        thumbnailSwiper.on('click', function () {
-            // Check if window size is greater than 1200px
-            if (window.innerWidth > 575) {
-                const clickedIndex = thumbnailSwiper.clickedIndex;
-    
-                if (clickedIndex !== undefined) {
-                    // Move the main swiper to the clicked thumbnail
-                    mainSwiper.slideToLoop(clickedIndex);
-    
-                    // Move thumbnail swiper to keep the selected thumbnail visible
-                    thumbnailSwiper.slideTo(Math.max(0, clickedIndex - 1));
-                }
-            }
-        });
-    
-        // Ensure thumbnails stay in sync when main swiper changes
-        mainSwiper.on('slideChange', function () {
-            if (window.innerWidth > 575) {
-                const currentMainIndex = mainSwiper.realIndex;
-                thumbnailSwiper.slideTo(currentMainIndex);
-            }
-        });
     }
     
     /* /Single product gallery */

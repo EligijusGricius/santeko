@@ -746,7 +746,7 @@ input[type=number]::-webkit-inner-spin-button {
     height: 0.01px;
     transform: translateY(-50%);
     
-    button {
+    button, div {
         position: static;
         width: 32px;
         height: 32px;
@@ -1316,6 +1316,8 @@ input[type=number]::-webkit-inner-spin-button {
 @import "blocks/_cart-widget-side";
 
 /* Pages */
+
+@import "pages/_single-product";
 
 /* /CSS imports */
 
