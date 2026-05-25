@@ -654,4 +654,59 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    /* Product summary tabs */
+
+    const summaryTabs = document.querySelectorAll('.product-tabs__tab');
+
+    summaryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = document.querySelector(tab.dataset.tabTarget);
+            if (!target) return;
+
+            summaryTabs.forEach(t => t.classList.remove('product-tabs__tab--active'));
+            document.querySelectorAll('.product-tabs__pane').forEach(p => p.classList.remove('product-tabs__pane--active'));
+
+            tab.classList.add('product-tabs__tab--active');
+            target.classList.add('product-tabs__pane--active');
+        });
+    });
+
+    /* Related products swiper */
+
+    document.querySelectorAll('.related-products-swiper .swiper-holder').forEach(holder => {
+        const swiperContainer = holder.querySelector('.swiper');
+        
+        if (swiperContainer) {
+            new Swiper(swiperContainer, {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                loop: false,
+                pagination: {
+                    el: holder.querySelector(".swiper-pagination"),
+                    clickable: true,
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+
+
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    
+                    1200: {
+                        slidesPerView: 4,
+                    },
+                }
+            });
+        }
+    });
 });
