@@ -468,7 +468,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (document.querySelector('.single-product-page .product-images')) {
         const thumbnailSwiper = new Swiper('.single-product-page .swiper-container-thumbs', {
-            slidesPerView: 3,
+            slidesPerView: 6,
             spaceBetween: 8,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
@@ -477,27 +477,16 @@ document.addEventListener("DOMContentLoaded", function () {
     
             breakpoints: {
                 0: {
-                    slidesPerView: 3,
-                    spaceBetween: 5,
-                    direction: 'horizontal',
-                },
-    
-                576: {
-                    slidesPerView: 3,
+                    slidesPerView: 6,
                     spaceBetween: 8,
                 },
 
-                769: {
-                    slidesPerView: 4,
+                610: {
+                    slidesPerView: 8,
                     spaceBetween: 8,
                 },
 
                 992: {
-                    slidesPerView: 5,
-                    spaceBetween: 8,
-                },
-
-                1200: {
                     slidesPerView: 6,
                     spaceBetween: 8,
                 },
@@ -708,5 +697,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }
+    });
+
+    /* Product tabs mobile toggle */
+
+    document.querySelectorAll('.product-tabs__mobile-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pane = btn.closest('.product-tabs__pane');
+            pane.classList.toggle('product-tabs__pane--active');
+        });
     });
 });
