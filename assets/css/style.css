@@ -11585,7 +11585,7 @@ input[type=number]::-webkit-inner-spin-button {
     position: absolute;
     top: 100%;
     left: 0;
-    height: 13px;
+    height: 5px;
     width: 200px;
   }
 }
@@ -11623,7 +11623,7 @@ input[type=number]::-webkit-inner-spin-button {
 .site-header #site-navigation #primary-menu-list > li.menu-item-has-children .dropdown-menu {
   display: block;
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 3px);
   padding: 0;
   border: 0;
   background-color: #fff;
