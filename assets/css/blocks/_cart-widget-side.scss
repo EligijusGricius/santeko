@@ -28,32 +28,57 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px;
+        padding: 0 0 0 17px;
         background-color: #F6F6F6;
         border-bottom: 1px solid #D1D5DB;
 
         .title { 
+            display: flex;
+            align-items: center;
+            gap: 0 16px;
             line-height: 24px;
             font-size: 18px;
             font-weight: 700;
             color: #323232;
             text-transform: uppercase;
+
+            .cart-icon {
+                position: relative;
+
+                &__badge {
+                    position: absolute;
+                    top: -1px;
+                    right: -6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #005CA9;
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: 10px;
+                    border-radius: 50%;
+                }
+            }
         }
 
         .close-side-widget {
-            a {
-                display: flex;
-                align-items: center;
-                gap: 0 6px;
-                line-height: 14px;
-                font-size: 14px;
-                font-weight: 500;
+            display: inline-flex;
 
-                &::before {
-                    content: '';
-                    width: 12px;
-                    height: 12px;
-                    background: url('../images/icons/close-side-widget-icon.svg') center center no-repeat;
+            a {
+                display: inline-flex;
+                width: 56px;
+                height: 56px;
+                background: #fff url('../images/icons/close-side-widget-icon.svg') center center no-repeat;
+                font-size: 0;
+
+                @media screen {
+                    @media (min-width: 992px) {
+                        &:hover {
+                            background-color: darken(#fff, 1%);
+                        }
+                    }
                 }
             }
         }
@@ -69,24 +94,40 @@
             gap: 50px 0;
             width: 100%;
 
+            @media screen {
+                @media (max-width: 768px) {
+                    gap: 14px 0;
+                }
+            }
+
             .shopping-cart-widget-body {
-                padding: 15px;
+                padding: 0;
 
                 .woocommerce-mini-cart {
                     display: flex;
                     flex-direction: column;
-                    gap: 15px 0;
 
                     .woocommerce-mini-cart-item {
                         position: relative;
                         display: flex;
-                        align-items: center;
-                        gap: 0 20px;
+                        align-items: flex-start;
+                        gap: 0 12px;
+                        padding: 15px 20px;
+                        border-bottom: 1px solid #D1D5DB;
 
                         .cart-item-image {
                             display: flex;
                             flex-shrink: 0;
-                            width: 85px;
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 4px;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: 4px;
+                            }
 
                             &:hover {
                                 opacity: .85;
@@ -98,24 +139,25 @@
                             flex-direction: column;
                             align-items: flex-start;
                             flex-grow: 1;
-                            padding-right: 20px;
                             font-size: 14px;
 
                             .wc-entities-title { 
                                 display: block;
-                                margin: 0 0 8px 0;
-                                line-height: 19.6px;
+                                margin: 0 0 4px 0;
+                                padding-right: 40px;
+                                line-height: 24px;
                                 font-weight: 600;
+                                font-size: 16px;
+                                color: #323232;
                             }
 
                             div.quantity {
-                                height: 32px;
-                                width: 92px;
-                                margin-bottom: 8px;
+                                height: 40px;
+                                width: 120px;
                                 border-width: 1px;
 
                                 input[type=button] {
-                                    width: 16px;
+                                    width: 24px;
                                 }
 
                                 input[type=number] {
@@ -132,16 +174,67 @@
                                     color: #C0080B;
                                 }
                             }
+
+                            .features {
+                                margin: 0 0 12px 0;
+
+                                li {
+                                    position: relative;
+                                    padding: 0 0 0 12px;
+                                    font-size: 12px;
+                                    letter-spacing: .03em;
+
+                                    &::before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 0;
+                                        width: 4px;
+                                        height: 4px;
+                                        background-color: rgba(76, 76, 77, 0.7);
+                                        transform: translateY(-50%);
+                                        border-radius: 50%;
+                                    }
+
+                                    strong {
+                                        font-weight: 600;
+                                        color: #323232;
+                                    }
+                                }
+                            }
+                        }
+
+                        .price-holder {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 0 20px;
+                            width: 100%;
+                        }
+
+                        .woocommerce-Price-amount {
+                            font-size: 16px;
+                            font-weight: 700;
+                            color: #323232;
                         }
 
                         .remove {
                             position: absolute;
-                            top: 0;
-                            right: 0;
-                            width: 10px;
-                            height: 10px;
+                            top: 16px;
+                            right: 20px;
+                            width: 24px;
+                            height: 24px;
                             background: url('../images/icons/woocommerce-mini-cart-item-remove-icon.svg') center center no-repeat;
                             font-size: 0;
+                            transition: opacity .3s ease-in-out;
+
+                            @media screen {
+                                @media (min-width: 992px) {
+                                    &:hover {
+                                        opacity: .6;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -149,44 +242,35 @@
 
             .shopping-cart-widget-footer {
                 margin-top: auto;
-                border-top: 1px solid #edeef0;
+                padding: 16px 0 0 0;
+                box-shadow: 0px -4px 8px 0px rgba(0, 0, 0, 0.08);
+
 
                 .woocommerce-mini-cart__total {
-                    &.total {
-                        padding: 10px 15px;
-                        font-weight: 600;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px 0;
+                    margin: 0;
+                    padding: 0 20px;
 
-                        @media screen {
-                            @media (min-width: 576px) {
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;  
-                                margin-bottom: 20px;
-                                border-bottom: 1px solid #edeef0;
-                            }
-
-                            @media (max-width: 575px) {
-                                padding: 30px 15px 20px 15px;
-                                text-align: center;
-                            }
-                        }
-
-                        strong { 
-                            line-height: 25.48px;
-                            font-size: 18.2px;
-                            font-weight: 600;
-
-                            @media screen {
-                                @media (max-width: 575px) {
-                                    font-size: 16px;
-                                }
-                            }
-                        }
-
-                        .woocommerce-Price-amount {
-                            color: #C0080B;
-                        }
+                    li {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between; 
+                        
+                        &.total {
+                            font-weight: 700;
+                            font-size: 20px;
+                            color: #323232;
+                        } 
                     }
+
+                    strong { 
+                        line-height: 28px;
+                        font-weight: 700;
+                    }
+
+                    
                 }
 
                 .wd-progress-bar {
