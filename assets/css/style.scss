@@ -404,11 +404,11 @@ input[type="radio"]:checked {
 input[type="checkbox"] {
     display: inline-flex;
     flex-shrink: 0;
-    width: 21px;
-    height: 21px;
+    width: 24px;
+    height: 24px;
     margin: -1px 8px 0 0;
-    border: 1px solid rgba(125, 115, 105, 0.7);
-    background: #fff url('../images/icons/checked-icon.svg') center center no-repeat;
+    border: 1.5px solid #D1D5DB;
+    background: #fff url('../images/icons/checkbox-check-icon.svg') center center no-repeat;
     cursor: pointer;
     vertical-align: middle;
     border-radius: 4px;
@@ -445,8 +445,8 @@ input[type="checkbox"]:required + label::after {
 }
 
 input[type="checkbox"]:checked {
-    border-color: #C0080B;
-    background-color: #C0080B;
+    border-color: #0067B0;
+    background-color: #005CA9;
 }
 
 .checkbox {
@@ -472,6 +472,42 @@ input[type="checkbox"]:checked {
         padding: 3px 0 0 0;
         line-height: 20px;
         font-size: 13px;
+    }
+}
+
+.checkbox-toggle {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 44px;
+    height: 24px;
+    margin: 0 !important;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 12px;
+
+    input {
+        display: none;
+    }
+    
+    &__slider {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        transition: 0.3s ease-in-out;
+        border-radius: 50%;
+    }
+
+    &:has(input:checked) {
+        background-color: #005CA9;
+
+        .checkbox-toggle__slider {
+            transform: translateX(20px);
+        }
     }
 }
 
@@ -1329,6 +1365,7 @@ input[type=number]::-webkit-inner-spin-button {
 /* Pages */
 
 @import "pages/_single-product";
+@import "pages/_account-page";
 
 /* /CSS imports */
 

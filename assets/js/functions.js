@@ -699,6 +699,72 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    /* My account menu dropdowns */
+
+    function initAccountMenu() {
+        const parentItems = document.querySelectorAll('.woocommerce-MyAccount-navigation .menu-item-has-children');
+        if (!parentItems.length) return;
+
+        parentItems.forEach(function (parentItem) {
+            const parentLink = parentItem.querySelector(':scope > a');
+
+            parentLink?.addEventListener('click', function (event) {
+                event.preventDefault();
+                parentItem.classList.toggle('show');
+            });
+        });
+    }
+
+    initAccountMenu();
+
+    /* Wishlist page functionality */
+
+    function initWishlist() {
+        const wishlistForm = document.querySelector('.wishlist-form');
+        if (!wishlistForm) return;
+
+        const removeSelectedBtn = document.querySelector('.wishlist-toolbar__action--remove');
+        const selectAllBtn = document.querySelector('.wishlist-toolbar__action--select-all');
+        const imagesToggle = document.querySelector('.checkbox-toggle input[type="checkbox"]');
+        const selectedCountEl = document.querySelector('.wishlist-footer__count strong');
+
+        const getItemCheckboxes = () =>
+            Array.from(wishlistForm.querySelectorAll('.product-select__checkbox'));
+
+        function updateSelectedCount() {
+            const selectedCount = getItemCheckboxes().filter(checkbox => checkbox.checked).length;
+            if (selectedCountEl) selectedCountEl.textContent = selectedCount + ' produkti';
+        }
+
+        selectAllBtn?.addEventListener('click', function () {
+            const itemCheckboxes = getItemCheckboxes();
+            const allSelected = itemCheckboxes.every(checkbox => checkbox.checked);
+            itemCheckboxes.forEach(checkbox => { checkbox.checked = !allSelected; });
+            updateSelectedCount();
+        });
+
+        removeSelectedBtn?.addEventListener('click', function () {
+            getItemCheckboxes()
+                .filter(checkbox => checkbox.checked)
+                .forEach(checkbox => checkbox.closest('tr')?.remove());
+            updateSelectedCount();
+        });
+
+        imagesToggle?.addEventListener('change', function () {
+            wishlistForm.classList.toggle('wishlist-form--no-images', !this.checked);
+        });
+
+        wishlistForm.addEventListener('change', function (event) {
+            if (event.target.classList.contains('product-select__checkbox')) {
+                updateSelectedCount();
+            }
+        });
+
+        updateSelectedCount();
+    }
+
+    initWishlist();
+
     /* Product tabs mobile toggle */
 
     document.querySelectorAll('.product-tabs__mobile-toggle').forEach(btn => {
