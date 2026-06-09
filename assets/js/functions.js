@@ -773,4 +773,40 @@ document.addEventListener("DOMContentLoaded", function () {
             pane.classList.toggle('product-tabs__pane--active');
         });
     });
+
+    /* Requisites copy buttons */
+
+    function initCopyButtons() {
+        const copyButtons = document.querySelectorAll('.requisites-item__copy');
+        if (!copyButtons.length) return;
+
+        copyButtons.forEach(function (copyButton) {
+            copyButton.addEventListener('click', async function () {
+                const copyText = copyButton.dataset.copy;
+                if (!copyText) return;
+
+                try {
+                    await navigator.clipboard.writeText(copyText);
+                } catch (error) {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = copyText;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                }
+
+                copyButton.classList.add('is-copied');
+                clearTimeout(copyButton._copiedTimer);
+                copyButton._copiedTimer = setTimeout(function () {
+                    copyButton.classList.remove('is-copied');
+                }, 1500);
+            });
+        });
+    }
+
+    initCopyButtons();
+
 });

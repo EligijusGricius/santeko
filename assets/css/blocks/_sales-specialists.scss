@@ -1,0 +1,106 @@
+.sales-specialists {
+    margin: 0 0 64px 0;
+
+    @media screen {
+        @media (max-width: 768px) {
+            margin: 0 0 32px 0;
+        }
+    }
+
+    .block-heading {
+        margin: 0 0 8px 0; 
+
+        & + p {
+            margin: 0 0 20px 0;
+        }
+    }
+
+    .sales-specialists-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+
+        @media screen {
+            @media (max-width: 1299px) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            @media (max-width: 575px) {
+                grid-template-columns: 1fr;
+                gap: 8px 0;
+            }
+        }
+    }
+
+    .specialist {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+
+        &__head {
+            display: flex;
+            align-items: center;
+            gap: 0 8px;
+            padding: 0 0 12px 0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: url('../images/icons/contacts-item-icon-frame.svg') center center no-repeat;
+        }
+
+        &__role,
+        &__name {
+            display: block;
+            line-height: normal;
+            font-size: 14px;
+            color: #878484;
+        }
+
+        &__name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #323232;
+        }
+
+        &__contacts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px 0;
+
+            li {
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 8px;
+
+                    &::before {
+                        content: '';
+                        flex-shrink: 0;
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+
+                &.specialist__contact--phone {
+                    a::before {
+                        background: url('../images/icons/contacts-phone-icon.svg') center center no-repeat;
+                    }
+                }
+
+                &.specialist__contact--email {
+                    a::before {
+                        background: url('../images/icons/contacts-email-icon.svg') center center no-repeat;
+                    }
+                }
+            }
+        }
+    } 
+}
