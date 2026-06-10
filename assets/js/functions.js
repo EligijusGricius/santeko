@@ -809,4 +809,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initCopyButtons();
 
+    /* Store hours toggle */
+
+    function initStoreHours() {
+        const hoursToggles = document.querySelectorAll('.stores-contacts .store__details .store__hours-toggle');
+        if (!hoursToggles.length) return;
+
+        hoursToggles.forEach(function (hoursToggle) {
+            hoursToggle.addEventListener('click', function () {
+                hoursToggle.closest('.store__hours').classList.toggle('show');
+            });
+        });
+    }
+
+    initStoreHours();
+
 });

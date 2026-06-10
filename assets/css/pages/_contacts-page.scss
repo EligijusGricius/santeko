@@ -275,7 +275,7 @@
         }
     }
 
-    .contacts-bottom {
+    .contacts-form-holder {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0 20px;
@@ -340,6 +340,16 @@
                 .block-heading {
                     margin: 0 0 10px 0;
                 }
+            }
+        }
+    }
+
+    .stores-contacts {
+        margin-top: 64px;
+
+        @media screen {
+            @media (max-width: 768px) {
+                margin-top: 40px;
             }
         }
     }

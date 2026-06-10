@@ -13671,6 +13671,223 @@ div.quantity button:hover {
   background: url("../images/icons/contacts-email-icon.svg") center center no-repeat;
 }
 
+.stores-contacts__grid {
+  display: block;
+  -moz-columns: 2;
+       columns: 2;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+@media screen and (max-width: 1099px) {
+  .stores-contacts__grid {
+    -moz-columns: 1;
+         columns: 1;
+  }
+}
+.stores-contacts .store {
+  display: flex;
+  gap: 0 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  page-break-inside: avoid;
+  border-radius: 8px;
+}
+@media screen and (max-width: 1099px) {
+  .stores-contacts .store:nth-last-child(2) {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 575px) {
+  .stores-contacts .store {
+    padding: 20px 12px;
+    margin-bottom: 8px;
+  }
+}
+.stores-contacts .store__thumbnail {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  width: 124px;
+}
+@media screen and (max-width: 1199px) {
+  .stores-contacts .store__thumbnail {
+    width: 90px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .stores-contacts .store__thumbnail {
+    display: none;
+  }
+}
+.stores-contacts .store__thumbnail img {
+  border-radius: 8px;
+}
+.stores-contacts .store__details {
+  position: relative;
+  flex-grow: 1;
+}
+@media screen and (max-width: 380px) {
+  .stores-contacts .store__details {
+    font-size: 15px;
+  }
+}
+.stores-contacts .store__details .store__name {
+  margin: 0 0 12px 0;
+  padding-right: 80px;
+  line-height: 28px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #20201F;
+}
+.stores-contacts .store__details .store__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px 0;
+  margin: 0 0 8px 0;
+}
+.stores-contacts .store__details .store__contacts-item {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+}
+.stores-contacts .store__details .store__contacts-item::before {
+  content: "";
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.stores-contacts .store__details .store__contacts-item a {
+  color: #005CA9;
+  text-decoration: underline;
+}
+.stores-contacts .store__details .store__contacts-item a:hover {
+  text-decoration: none;
+}
+.stores-contacts .store__details .store__contacts-item--address::before {
+  background: url("../images/icons/contacts-pin-icon.svg") center center no-repeat;
+}
+.stores-contacts .store__details .store__contacts-item--phone::before {
+  background: url("../images/icons/contacts-phone-icon.svg") center center no-repeat;
+}
+.stores-contacts .store__details .store__contacts-item--email::before {
+  background: url("../images/icons/contacts-email-icon.svg") center center no-repeat;
+}
+.stores-contacts .store__details .store__hours-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #323232;
+  cursor: pointer;
+}
+@media screen and (max-width: 380px) {
+  .stores-contacts .store__details .store__hours-toggle {
+    font-size: 15px;
+  }
+}
+.stores-contacts .store__details .store__hours-toggle::before {
+  content: "";
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: url("../images/icons/contacts-clock-icon.svg") center center no-repeat;
+}
+.stores-contacts .store__details .store__hours-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background: url("../images/icons/stores-contacts-toggle-arrow.svg") center center no-repeat;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+.stores-contacts .store__details .store__hours-list {
+  display: none;
+  flex-direction: column;
+  gap: 12px 0;
+  padding: 8px 0 0 0;
+  border-top: 1px solid #E6E6E6;
+  font-size: 14px;
+}
+.stores-contacts .store__details .store__hours-list li {
+  line-height: 20px;
+}
+.stores-contacts .store__details .store__hours-list strong {
+  font-weight: 600;
+  color: #20201F;
+}
+.stores-contacts .store__details .store__hours-list strong.color-red {
+  color: #D40329;
+}
+.stores-contacts .store__details .store__hours.show .store__hours-toggle::after {
+  transform: translateY(-50%) rotate(-180deg);
+}
+.stores-contacts .store__details .store__hours.show .store__hours-list {
+  display: flex;
+}
+.stores-contacts .store__location-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #E6E6E6;
+  border-radius: 8px;
+}
+.stores-contacts .store__location-link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: url("../images/icons/stores-pin-icon.svg") center center no-repeat;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+}
+.stores-contacts .store__location-link:hover {
+  border-color: #0067B0;
+  background-color: #0067B0;
+}
+.stores-contacts .store__location-link:hover::before {
+  filter: brightness(0) invert(1);
+}
+.stores-contacts .stores__promo {
+  position: relative;
+  display: none;
+  border-radius: 8px;
+}
+@media screen and (min-width: 1100px) {
+  .stores-contacts .stores__promo {
+    display: flex;
+  }
+}
+.stores-contacts .stores__promo img {
+  border-radius: 8px;
+}
+.stores-contacts .stores__promo .btn {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 0 32px;
+}
+.stores-contacts .stores__promo:hover .btn {
+  background-color: #005CA9;
+  border-color: #005CA9;
+  color: #fff;
+}
+
 /* Pages */
 .single-product-page__main {
   display: flex;
@@ -14944,69 +15161,77 @@ div.quantity button:hover {
 .contacts-page .requisites .requisites-item__copy:hover {
   opacity: 0.7;
 }
-.contacts-page .contacts-bottom {
+.contacts-page .contacts-form-holder {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 20px;
 }
 @media screen and (max-width: 860px) {
-  .contacts-page .contacts-bottom {
+  .contacts-page .contacts-form-holder {
     grid-template-columns: 1fr;
     gap: 20px 0;
   }
 }
-.contacts-page .contacts-bottom__block {
+.contacts-page .contacts-form-holder__block {
   padding: 48px;
   background-color: #fff;
   border-radius: 8px;
 }
 @media screen and (max-width: 1299px) {
-  .contacts-page .contacts-bottom__block {
+  .contacts-page .contacts-form-holder__block {
     padding: 32px;
   }
 }
 @media screen and (max-width: 991px) {
-  .contacts-page .contacts-bottom__block {
+  .contacts-page .contacts-form-holder__block {
     padding: 24px;
   }
 }
 @media screen and (max-width: 768px) {
-  .contacts-page .contacts-bottom__block {
+  .contacts-page .contacts-form-holder__block {
     padding: 20px 12px;
   }
 }
-.contacts-page .contacts-bottom__block .block-heading {
+.contacts-page .contacts-form-holder__block .block-heading {
   margin: 0 0 24px 0;
   line-height: 28px;
   font-size: 20px;
 }
 @media screen and (max-width: 768px) {
-  .contacts-page .contacts-bottom__block .block-heading {
+  .contacts-page .contacts-form-holder__block .block-heading {
     margin: 0 0 12px 0;
     line-height: 26px;
     font-size: 18px;
   }
 }
-.contacts-page .contacts-bottom__block--faq {
+.contacts-page .contacts-form-holder__block--faq {
   padding-bottom: 36px;
 }
 @media screen and (max-width: 1299px) {
-  .contacts-page .contacts-bottom__block--faq {
+  .contacts-page .contacts-form-holder__block--faq {
     padding-bottom: 24px;
   }
 }
 @media screen and (max-width: 991px) {
-  .contacts-page .contacts-bottom__block--faq {
+  .contacts-page .contacts-form-holder__block--faq {
     padding-bottom: 20px;
   }
 }
 @media screen and (max-width: 768px) {
-  .contacts-page .contacts-bottom__block--faq {
+  .contacts-page .contacts-form-holder__block--faq {
     padding-bottom: 8px;
   }
 }
-.contacts-page .contacts-bottom__block--faq .block-heading {
+.contacts-page .contacts-form-holder__block--faq .block-heading {
   margin: 0 0 10px 0;
+}
+.contacts-page .stores-contacts {
+  margin-top: 64px;
+}
+@media screen and (max-width: 768px) {
+  .contacts-page .stores-contacts {
+    margin-top: 40px;
+  }
 }
 
 /* /CSS imports *//*# sourceMappingURL=style.css.map */
