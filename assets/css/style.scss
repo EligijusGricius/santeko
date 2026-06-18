@@ -110,6 +110,10 @@ body {
             z-index: 99999999;
         }
     }
+
+    &.woocommerce-checkout {
+        padding-top: 96px;
+    }
 }
 
 .content-overlay {
@@ -353,11 +357,11 @@ abbr.required {
 input[type="radio"] {
     display: inline-flex;
     flex-shrink: 0;
-    width: 13px;
-    height: 13px;
-    margin: 0 5px 0 0;
+    width: 16px;
+    height: 16px;
+    margin: 0 12px 0 0;
     background-color: #fff;
-    border: 1px solid #C6C6C6;
+    border: 1px solid #E6E6E6;
     cursor: pointer;
     vertical-align: middle;
     border-radius: 50%;
@@ -397,8 +401,8 @@ input[type="radio"] + label {
 }
 
 input[type="radio"]:checked {
-    border-color: #C0080B;
-    background:#fff url('../images/icons/radio-dot.svg') center center no-repeat;
+    border-color: #0067B0;
+    background: #0067B0 url('../images/icons/radio-dot.svg') center center no-repeat;
 }
 
 input[type="checkbox"] {
@@ -447,6 +451,31 @@ input[type="checkbox"]:required + label::after {
 input[type="checkbox"]:checked {
     border-color: #0067B0;
     background-color: #005CA9;
+}
+
+.password-input {
+    position: relative;
+
+    input {
+        padding-right: 50px;
+    }
+
+    .show-password-input {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        height: 100%;
+        width: 21px;
+        padding: 0;
+        border: 0;
+        background: url('../images/icons/show-password-icon.svg') center center no-repeat;
+        outline: none;
+        cursor: pointer;
+
+        &.active {
+            background: url('../images/icons/hide-password-icon.svg') center center no-repeat;
+        }
+    }
 }
 
 .checkbox {
@@ -691,6 +720,43 @@ input[type=number]::-webkit-outer-spin-button {
         line-height: 27px;
         color: rgba(37, 31, 31, 0.8);
     }
+
+    &.has-blue-text {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0 !important;
+
+        > span {
+            margin-bottom: 12px;
+            line-height: 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #005CA9;
+            text-transform: uppercase;
+
+            @media screen {
+                @media (max-width: 768px) {
+                    margin-bottom: 7px; 
+                }
+            }
+        }
+
+        .block-heading {
+            margin-bottom: 12px;
+
+            @media screen {
+                @media (max-width: 575px) {
+                    line-height: 34px;
+                }
+            }
+        }
+
+        &:not(:has(.sub-heading)) {
+            .block-heading {
+                margin: 0;
+            }
+        }
+    }
 }
 
 .page-heading-holder {
@@ -704,6 +770,12 @@ input[type=number]::-webkit-outer-spin-button {
 
     .sub-heading { 
         color: rgba(37, 31, 31, 0.8);
+    }
+
+    &:not(:has(.sub-heading)) {
+        h1, .page-heading {
+            margin: 0;
+        }
     }
 }
 
@@ -1299,12 +1371,18 @@ input[type=number]::-webkit-inner-spin-button {
 @import "blocks/_suppliers-grid";
 @import "blocks/_sales-specialists";
 @import "blocks/_stores-contacts";
+@import "blocks/_page-hero";
+@import "blocks/_story-media";
+@import "blocks/_directions";
+@import "blocks/_partnership-features";
+@import "blocks/_consultation-cta";
 
 /* Pages */
 
 @import "pages/_single-product";
 @import "pages/_account-page";
 @import "pages/_contacts-page";
+@import "pages/_checkout-page";
 
 /* /CSS imports */
 

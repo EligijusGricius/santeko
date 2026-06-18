@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="lv">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        <link href="assets/css/style.css?v=1" rel="stylesheet" />
+        <title>Santeko</title>
+    </head>
+
+    <body class="woocommerce-checkout">
+        <header id="masthead" class="site-checkout-header">
+            <div class="container">
+                <a href="#" class="site-logo">
+                    <img src="assets/images/logo.svg" alt="">
+                </a>
+
+                <div class="user-account">
+                    <a href="#" class="user-account user-account--login">
+                        <img src="assets/images/icons/checkout-header-account-icon.svg" alt="">
+                        <span>Autorizēties</span>
+                    </a>
+                </div>
+            </div> 
+        </header>     
+
+        <main id="main" class="site-main" role="main"> 
+            <div class="container">
+                <h1 class="page-heading">Norēķinu lapa</h1>
+
+                <div class="checkout-toolbar">
+                    <div class="checkbox-toggle-holder d-flex align-items-center">
+                        <span>Pasplēpt bildes</span>
+
+                        <label class="checkbox-toggle">
+                            <input type="checkbox">
+                            <span class="checkbox-toggle__slider"></span>
+                        </label>
+
+                        <span>Radīt bildes</span>
+                    </div>
+
+                    <a href="#" class="btn btn-secondary btn--print">DRUKĀT</a>
+                </div>
+
+                <h2 class="cart-heading">Pasūtījuma preces</h2>
+
+                <div class="notice notice--warning">
+                    <p class="notice__text">Daži pasūtījumā iekļautie produkti pašlaik nav pieejami vai ir pieejami tikai daļēji. Izvēlieties vēlamo variantu katram no augšā minētajiem produktiem, lai zemāk apskatītu sūtījuma pārskatu.</p>
+                </div>
+
+                <form type="post" class="checkout-form">
+                    <table class="items-table">
+                        <thead>
+                            <tr>
+                                <th class="item-name">Preces Nosaukums</th>
+                                <th class="item-sku">Nomenklatura</th>
+                                <th class="item-quantity">Skaits</th>
+                                <th class="item-price">Cena</th>
+                                <th class="item-total">Summa</th>
+                                <th class="item-remove"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-1.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">Kompresijas līkums Cu caurulei 10x1/2"M</a>
+                                            <p class="stock in-stock">Sūtīt atsevišķi</p>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">T11041015</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">2.27 €</td>
+                                <td class="item-total" data-title="Summa">90.80 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-2.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">ACR-Press trejgabals 3/8"</a>
+                                            <p class="stock in-stock">Sūtīt atsevišķi</p>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">T7313213038</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">13.98 €</td>
+                                <td class="item-total" data-title="Summa">27.96 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+
+                            <tr class="red-row">
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-3.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">Alumīnija sekcija 350mm B4 BLITZ SUPER, CLASSIC, krāsaina</a>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">20000903501xx</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">14.67 €</td>
+                                <td class="item-total" data-title="Summa">176.04 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+
+                            <tr class="options-row">
+                                <td colspan="6">
+                                    <div class="stock-options">
+                                        <span class="stock-options__title">Izvēlieties piegādes veidu šai precei:</span>
+
+                                        <div class="stock-options__list">
+                                            <label class="stock-option">
+                                                <input type="radio" name="stock-3" class="stock-option__radio">
+                                                <span class="stock-option__title">Gaidīt visu pasūtījumu</span>
+                                                <span class="stock-option__desc">Viss pasūtījums tiks nosūtīts vienā sūtījumā</span>
+                                            </label>
+    
+                                            <label class="stock-option">
+                                                <input type="radio" name="stock-3" class="stock-option__radio">
+                                                <span class="stock-option__title">Sūtīt atsevišķi</span>
+                                                <span class="stock-option__desc">Šī prece tiks nosūtīta atsevišķā pasūtījumā.</span>
+                                            </label>
+    
+                                            <label class="stock-option">
+                                                <input type="radio" name="stock-3" class="stock-option__radio">
+                                                <span class="stock-option__title">Pasūtīt pieejamos</span>
+                                                <span class="stock-option__desc">Pašlaik pieejamais daudzums: <strong>8 gab.</strong></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="red-row">
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-1.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">ACR-Press trejgabals 3/8"</a>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">T11041015</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">2.27 €</td>
+                                <td class="item-total" data-title="Summa">90.80 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+
+                            <tr class="red-row">
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-1.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">Alumīnija sekcija 350mm B4 BLITZ SUPER, CLASSIC, krāsaina</a>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">T11041015</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">2.27 €</td>
+                                <td class="item-total" data-title="Summa">90.80 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-1.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">Filtrs pašattīrošs ar manometru, 3135N</a>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">T11041015</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">2.27 €</td>
+                                <td class="item-total" data-title="Summa">90.80 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-1.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">Filtrs pašattīrošs ar manometru, 3135N</a>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">T11041015</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">2.27 €</td>
+                                <td class="item-total" data-title="Summa">90.80 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="item-name" data-title="Preces Nosaukums">
+                                    <div class="item-name-wrapper">
+                                        <a href="#">
+                                            <img src="assets/images/cart-item-name-image-1.jpg" alt="">
+                                        </a>
+    
+                                       <div>
+                                            <a href="#" class="name">Filtrs pašattīrošs ar manometru, 3135N</a>
+                                       </div>
+                                    </div>
+                                </td>
+
+                                <td class="item-sku" data-title="Nomenklatura">T11041015</td>
+                                <td class="item-quantity" data-title="Skaits">
+                                    <div class="quantity">
+                                        <input type="button" value="" class="minus btn" aria-label="Decrease quantity">
+                                        <input type="number" id="" class="input-text qty text" value="1" aria-label="Product quantity" min="1" name="quantity" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                        <input type="button" value="" class="plus btn" aria-label="Increase quantity">
+                                    </div>
+                                </td>
+                                <td class="item-price" data-title="Cena">2.27 €</td>
+                                <td class="item-total" data-title="Summa">90.80 €</td>
+                                <td class="item-remove" data-title="">
+                                    <button type="button" class="remove-btn" aria-label=""></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="blocks-holder">
+                        <div class="customer-details">
+                            <div class="woocommerce-billing-fields__field-wrapper">
+                                <h3>PIEGĀDES ADRESE</h3>
+
+                                <div class="form-row form-row--wide form-row--delivery-address">
+                                    <label class="required_field">Piegādes adrese</label>
+                                    
+                                    <div class="select-holder">
+                                        <select name="delivery-address">
+                                            <option value="" selected="">Rīga, Kārļa Ulmaņa gatve 2, LV-1004</option>
+                                            <option value="">Viļņa, Gedimino pr. 1, LT-1004</option>
+                                            <option value="">Tallina, Pärnu mnt 10, EE-1004</option>
+                                        </select>
+
+                                        <a href="#" class="btn btn-secondary btn--edit-address"></a>
+                                    </div>
+
+                                    <button type="button" class="btn btn-secondary btn--add-address">Pievienot jaunu adresi</button>
+                                </div>
+                            </div>
+
+                            <div class="woocommerce-billing-fields__field-wrapper">
+                                <h3>IZVĒLĒTIES PIEGĀDES VEIDU</h3>
+
+                                <label class="option-card">
+                                    <input type="radio" name="delivery" class="option-card__radio">
+
+                                    <div class="option-card__body">
+                                        <span class="option-card__name">Saņemt Santeko noliktavā</span>
+                                        <span class="option-card__desc">K. Ulmaņa gatve 2, Rīga, LV-1004</span>
+                                    </div>
+
+                                    <div class="option-card__icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.25 20.25V13.75H8.75V20.25M7.875 3.75V7.2M7.875 7.2C7.875 8.33909 6.95159 9.27 5.8125 9.27C4.67341 9.27 3.75 8.33909 3.75 7.2M7.875 7.2C7.875 8.33909 8.79841 9.27 9.9375 9.27C11.0766 9.27 12 8.33909 12 7.2M12 3.75V7.2M12 7.2C12 8.33909 12.9234 9.27 14.0625 9.27C15.2016 9.27 16.125 8.33909 16.125 7.2M16.125 3.75V7.2M16.125 7.2C16.125 8.33909 17.0484 9.27 18.1875 9.27C19.3266 9.27 20.25 8.33909 20.25 7.2M20.25 3.75V20.25H3.75V3.75H20.25Z" stroke="#005CA9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </label>
+
+                                <label class="option-card">
+                                    <input type="radio" name="delivery" class="option-card__radio" checked>
+                                    
+                                    <div class="option-card__body">
+                                        <span class="option-card__name">Santeko piegāde</span>
+                                        <span class="option-card__desc">Bezmaksas piegāde <strong>0.00 €</strong></span>
+                                    </div>
+
+                                    <div class="option-card__icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.75 3C3.33579 3 3 3.33579 3 3.75C3 4.16421 3.33579 4.5 3.75 4.5V3.75V3ZM6.75 3.75H7.5V3H6.75V3.75ZM6 14C6 14.4142 6.33579 14.75 6.75 14.75C7.16421 14.75 7.5 14.4142 7.5 14H6.75H6ZM10 16.5C9.58579 16.5 9.25 16.8358 9.25 17.25C9.25 17.6642 9.58579 18 10 18V17.25V16.5ZM20.25 18C20.6642 18 21 17.6642 21 17.25C21 16.8358 20.6642 16.5 20.25 16.5V17.25V18ZM10.75 4.75V4C10.3358 4 10 4.33579 10 4.75H10.75ZM20.25 4.75H21C21 4.33579 20.6642 4 20.25 4V4.75ZM20.25 13.25V14C20.6642 14 21 13.6642 21 13.25H20.25ZM10.75 13.25H10C10 13.6642 10.3358 14 10.75 14V13.25ZM14.75 8.25C14.75 8.66421 15.0858 9 15.5 9C15.9142 9 16.25 8.66421 16.25 8.25H15.5H14.75ZM3.75 3.75V4.5H6.75V3.75V3H3.75V3.75ZM6.75 3.75H6V14H6.75H7.5V3.75H6.75ZM10 17.25V18H20.25V17.25V16.5H10V17.25ZM20.25 4.75H19.5V13.25H20.25H21V4.75H20.25ZM20.25 13.25V12.5H10.75V13.25V14H20.25V13.25ZM10.75 13.25H11.5V4.75H10.75H10V13.25H10.75ZM10.75 4.75V5.5H15.5V4.75V4H10.75V4.75ZM15.5 4.75V5.5H20.25V4.75V4H15.5V4.75ZM15.5 8.25H16.25V4.75H15.5H14.75V8.25H15.5ZM9.75 17.25H9C9 18.4926 7.99264 19.5 6.75 19.5V20.25V21C8.82107 21 10.5 19.3211 10.5 17.25H9.75ZM6.75 20.25V19.5C5.50736 19.5 4.5 18.4926 4.5 17.25H3.75H3C3 19.3211 4.67893 21 6.75 21V20.25ZM3.75 17.25H4.5C4.5 16.0074 5.50736 15 6.75 15V14.25V13.5C4.67893 13.5 3 15.1789 3 17.25H3.75ZM6.75 14.25V15C7.99264 15 9 16.0074 9 17.25H9.75H10.5C10.5 15.1789 8.82107 13.5 6.75 13.5V14.25Z" fill="#005CA9"/>
+                                        </svg>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="woocommerce-billing-fields__field-wrapper">
+                                <h3>Izvēlēties Apmaksas metodi</h3>
+
+                                <label class="option-card">
+                                    <input type="radio" name="payment" class="option-card__radio">
+
+                                    <div class="option-card__body">
+                                        <span class="option-card__name">Apmaksa ar bankas pārskaitījumu</span>
+                                        <span class="option-card__desc">Pēc pasūtījuma apstiprināšanas tiks sagatavots un nosūtīts rēķins apmaksai.</span>
+                                    </div>
+
+                                    <div class="option-card__icon" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.75 7.75H15.25M8.75 11.75H11.25M19.25 21.25V3.75C19.25 3.19772 18.8023 2.75 18.25 2.75H5.75C5.19772 2.75 4.75 3.19772 4.75 3.75V21.25L7.33333 19L9.66667 21.25L12 19L14.3333 21.25L16.6667 19L19.25 21.25Z" stroke="#005CA9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </label>
+
+                                <label class="option-card">
+                                    <input type="radio" name="payment" class="option-card__radio" checked>
+                                    
+                                    <div class="option-card__body">
+                                        <span class="option-card__name">Apmaksa uz vietas</span>
+                                        <span class="option-card__desc">Par pasūtījumu iespējams norēķināties skaidrā naudā vai ar bankas karti saņemšanas brīdī.</span>
+                                    </div>
+
+                                    <div class="option-card__icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.75 10H8.75M12.3021 7C11.7136 6.22784 10.8995 5.75 10 5.75C8.20507 5.75 6.75 7.65279 6.75 10C6.75 12.3472 8.20507 14.25 10 14.25C10.8995 14.25 11.7136 13.7722 12.3021 13M19.25 10C19.25 15.1086 15.1086 19.25 10 19.25C4.89137 19.25 0.75 15.1086 0.75 10C0.75 4.89137 4.89137 0.75 10 0.75C15.1086 0.75 19.25 4.89137 19.25 10Z" stroke="#005CA9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </label>
+
+                                <div class="notice">
+                                    <p class="notice__text">Tiešsaistes apmaksa šobrīd nav pieejama. Atvainojamies par sagādātajām neērtībām.</p>
+                                </div>
+                            </div>
+
+                            <div class="woocommerce-billing-fields__field-wrapper">
+                                <h3>pasūtījuma piezīmes</h3>
+
+                                <div class="form-row">
+                                    <label for="order_comments" class="">Piezīmes par pasūtījumu</label>
+                                    <textarea name="order-comments" class="input-text" placeholder="Ievadi pasūtījuma piezīmes..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wc-block-checkout__sidebar">
+                            <div>
+                                <div class="wp-block-woocommerce-checkout-order-summary-block">
+                                    <h3 role="heading">Pasūtījuma kopsavilkums</h3>       
+                                        
+                                    <div class="wp-block-woocommerce-checkout-order-summary-block__wrapper">
+                                        <table class="woocommerce-checkout-review-order-table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Starpsumma</th>
+                                                    <td>1038.89 €</td>
+                                                </tr>
+    
+                                                <tr>
+                                                    <th>PVN (21%)</th>
+                                                    <td>276.16 €</td>
+                                                </tr>
+    
+                                                <tr>
+                                                    <th>Piegāde</th>
+                                                    <td>0.00 €</td>
+                                                </tr>
+            
+                                                <tr>
+                                                    <th>Kopā</th>
+                                                    <td>1315.06 €</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+        
+                                        <div class="checkbox-holder">
+                                            <input type="checkbox" id="terms" name="terms" required="">
+                                            <label for="terms">Piekrītu vietnes <a href="#">noteikumiem</a> un <a href="#">privātuma politikai</a> un datu apstrādei pasūtījuma veikšanai.</label>
+                                        </div>
+        
+                                        <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="VEIKT PASŪTĪJUMU" data-value="VEIKT PASŪTĪJUMU">Pasūtīt</button>
+                                    </div>
+                                </div>
+    
+                                <div class="wp-block-woocommerce-checkout-order-summary-coupon-form-block">
+                                    <h3 role="heading">Promo kods</h3>   
+                                    
+                                    <div class="form-row-wrapper">
+                                        <div class="form-row">
+                                            <label>Ievadi kupona kodu</label>
+                                            <input type="text" class="input-text">
+                                        </div>
+        
+                                        <button type="button" class="button" name="">Pievienot</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer class="checkout-main-footer"> 
+            <div class="container">
+                <span class="copyrights">&copy; 2026 SANTEKO. Visas tiesības aizsargātas</span>
+
+                <a href="#" target="_blank" class="made-by-WDM">
+                    <span>Interneta veikala izstrāde:</span>
+                    <img src="assets/images/logos/wdm-logo-dark.svg">
+                </a>
+            </div>
+        </footer>
+
+        <div class="content-overlay"></div>
+
+        <!-- JS files -->
+        <script src="assets/js/jquery.min.js"></script> 
+        <script src="assets/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="assets/js/bootstrap-select.min.js"></script> 
+        <script src="assets/js/swiper-bundle.min.js"></script> 
+        <script src="assets/js/fancybox.min.js"></script> 
+        <script src="assets/js/functions.js?v=1"></script>       
+    </body>
+</html>

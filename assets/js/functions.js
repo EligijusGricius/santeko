@@ -824,4 +824,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initStoreHours();
 
+    /* Checkout coupon toggle */
+
+    const couponBlock = document.querySelector(
+        '.woocommerce-checkout .wc-block-checkout__sidebar .wp-block-woocommerce-checkout-order-summary-coupon-form-block'
+    );
+
+    if (couponBlock) {
+        const heading = couponBlock.querySelector('[role="heading"]');
+
+        if (heading) {
+            heading.addEventListener('click', () => {
+            couponBlock.classList.toggle('is-open');
+            });
+        }
+    }
+
+    /* Checkout image toggle */
+
+    const imageToggleCheckbox = document.querySelector(
+    '.checkout-toolbar .checkbox-toggle-holder .checkbox-toggle input[type="checkbox"]'
+    );
+    const orderItemsTable = document.querySelector('.items-table');
+
+    if (imageToggleCheckbox && orderItemsTable) {
+        orderItemsTable.classList.toggle('show-images', imageToggleCheckbox.checked);
+
+        imageToggleCheckbox.addEventListener('change', () => {
+            orderItemsTable.classList.toggle('show-images', imageToggleCheckbox.checked);
+        });
+    }
+
+    /* Checkout remove item */
+
+    const removableItemsTable = document.querySelector('.woocommerce-checkout .items-table');
+
+    if (removableItemsTable) {
+    removableItemsTable.addEventListener('click', (event) => {
+        const removeBtn = event.target.closest('tbody tr td .remove-btn');
+        if (!removeBtn) return;
+
+        removeBtn.closest('tr').remove();
+    });
+    }
+
 });

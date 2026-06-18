@@ -411,3 +411,42 @@
         }
     }
 }
+
+.checkout-main-footer {
+    margin-top: 64px;
+    background-color: #fff;
+    color: #20201F;
+    line-height: 20px;
+    font-size: 14px;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 44px; 
+
+        @media screen {
+            @media (max-width: 575px) {
+                flex-direction: column;
+                gap: 8px 0;
+                height: auto;
+                padding: 12px 0;
+            }
+        }
+    }
+
+    .made-by-WDM {
+        display: flex;
+        align-items: center;
+        gap: 0 4px;
+        color: #4C4C4D;
+
+        img {
+            height: 12px;
+        }
+
+        &:hover {
+            color: #005CA9;
+        }
+    }
+}

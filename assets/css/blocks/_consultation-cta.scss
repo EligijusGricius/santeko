@@ -1,0 +1,107 @@
+.consultation-cta {
+    position: relative;
+    margin: 64px 0;
+    padding: 64px 0;
+    background-color: #E8F4FF;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 8px;
+
+    @media screen {
+        @media (max-width: 575px) {
+            padding: 32px 0 64px 0;
+        }
+    }
+
+    &.mb-128 {
+        margin-bottom: 128px;
+
+        @media screen {
+            @media (max-width: 991px) {
+                margin-bottom: 64px;
+            }
+        }
+    }
+
+    .block-heading-holder {
+        align-items: center;
+        padding: 0 16px;
+
+        @media screen {
+            @media (max-width: 1299px) {
+                max-width: 50%;
+                margin: 0 auto 20px;
+                text-align: center;
+
+                .block-heading {
+                    text-align: center;
+                }
+            }
+
+            @media (max-width: 991px) {
+                max-width: 70%;
+
+                .block-heading {
+                    margin: 0 0 8px 0;
+                    line-height: normal;
+                }
+            }
+
+            @media (max-width: 768px) {
+                max-width: 100%;
+            }
+        }
+
+        .sub-heading {
+            font-weight: 400;
+            font-size: 16px;
+            text-transform: none;
+        }
+    }
+
+    &__content {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__image {
+        position: absolute;
+        bottom: 0;
+        pointer-events: none;
+
+        @media screen {
+            @media (max-width: 991px) {
+                max-height: 110px;
+            }
+        }
+
+        &--left {
+            left: 32px;
+
+            @media screen {
+                @media (max-width:1199px) {
+                    left: -35px;
+                }
+
+                @media (max-width:991px) {
+                    left: -15px;
+                }
+                
+            }
+        }
+
+        &--right {
+            right: 10px;
+
+            @media screen {
+                @media (max-width:1199px) {
+                    right: -35px;
+                }
+
+                @media (max-width:991px) {
+                    right: -20px;
+                }
+            }
+        }
+    }
+}
