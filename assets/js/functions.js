@@ -860,12 +860,65 @@ document.addEventListener("DOMContentLoaded", function () {
     const removableItemsTable = document.querySelector('.woocommerce-checkout .items-table');
 
     if (removableItemsTable) {
-    removableItemsTable.addEventListener('click', (event) => {
-        const removeBtn = event.target.closest('tbody tr td .remove-btn');
-        if (!removeBtn) return;
+        removableItemsTable.addEventListener('click', (event) => {
+            const removeBtn = event.target.closest('tbody tr td .remove-btn');
+            if (!removeBtn) return;
 
-        removeBtn.closest('tr').remove();
-    });
+            removeBtn.closest('tr').remove();
+        });
     }
 
+    /* Delivery schedules toggle */
+
+    const deliverySchedules = document.querySelector('.delivery-map__schedules');
+    const deliveryMapHolder = document.querySelector('.delivery-map__holder');
+
+    if (deliverySchedules && deliveryMapHolder) {
+
+        // Show map layer by data-schedule, hide the rest
+        const showMapLayer = (scheduleKey) => {
+            deliveryMapHolder
+            .querySelectorAll('img.show')
+            .forEach((img) => img.classList.remove('show'));
+
+            if (scheduleKey) {
+            const layer = deliveryMapHolder.querySelector('.' + scheduleKey);
+            if (layer) layer.classList.add('show');
+            }
+        };
+
+        // 1. Hover over schedule-item -> show matching layer
+        deliverySchedules.addEventListener('mouseover', (event) => {
+            const scheduleItem = event.target.closest('.schedule-item');
+            if (!scheduleItem || !deliverySchedules.contains(scheduleItem)) return;
+
+            showMapLayer(scheduleItem.dataset.schedule);
+        });
+
+        // On mouse leave -> fall back to the open item's layer
+        deliverySchedules.addEventListener('mouseleave', () => {
+            const openItem = deliverySchedules.querySelector('.schedule-item--open');
+            showMapLayer(openItem ? openItem.dataset.schedule : null);
+        });
+
+        // 2. Click on toggle -> accordion + show the open item's layer
+        deliverySchedules.addEventListener('click', (event) => {
+            const scheduleToggle = event.target.closest('.schedule-item__toggle');
+            if (!scheduleToggle) return;
+
+            const scheduleItem = scheduleToggle.closest('.schedule-item');
+            const wasOpen = scheduleItem.classList.contains('schedule-item--open');
+
+            deliverySchedules
+            .querySelectorAll('.schedule-item--open')
+            .forEach((item) => item.classList.remove('schedule-item--open'));
+
+            if (!wasOpen) {
+                scheduleItem.classList.add('schedule-item--open');
+                showMapLayer(scheduleItem.dataset.schedule);
+            } else {
+                showMapLayer(null);
+            }
+        });
+    }
 });
